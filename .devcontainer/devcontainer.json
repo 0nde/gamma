@@ -25,12 +25,11 @@
         "terminal.integrated.defaultProfile.linux": "zsh",
         "extensions.gallery.serviceUrl": "https://open-vsx.org/vscode/gallery",
         "extensions.gallery.itemUrl": "https://open-vsx.org/vscode/item",
-        // Ensure Pylint is found if installed via pip by Python extension
         "python.linting.pylintPath": "/usr/local/bin/pylint"
       }
     }
   },
-  "postCreateCommand": "echo '✅ Development environment ready!' && sudo chown -R devuser:devuser /home/devuser/.aws /home/devuser/.ssh && echo 'Tool versions:' && python --version && node --version && terraform --version && aws --version && gh --version",
+  "postCreateCommand": "sudo chown -R devuser:devuser /home/devuser/.aws /home/devuser/.ssh && echo '✅ Development environment ready!' && python --version && node --version && terraform --version && aws --version && gh --version",
   "remoteUser": "devuser",
   "mounts": [
     "source=${localEnv:USERPROFILE}/.aws,target=/home/devuser/.aws,type=bind,consistency=cached",
