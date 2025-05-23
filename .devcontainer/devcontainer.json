@@ -1,0 +1,30 @@
+{
+  "name": "Universal Dev Environment (Node.js, Python, Terraform, AWS, GitHub CLI)",
+  "image": "haonde/aws-archi:0.3",
+  "remoteUser": "devuser",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-python.python",
+        "hashicorp.terraform",
+        "github.vscode-pull-request-github",
+        "amazonwebservices.aws-toolkit-vscode",
+        "ms-ceintl.vscode-language-pack-fr",
+        "esbenp.prettier-vscode",
+        "redhat.vscode-yaml"
+      ],
+      "settings": {
+        "python.defaultInterpreterPath": "/usr/local/bin/python",
+        "terminal.integrated.defaultProfile.linux": "zsh",
+        "extensions.gallery.serviceUrl": "https://open-vsx.org/vscode/gallery",
+        "extensions.gallery.itemUrl": "https://open-vsx.org/vscode/item",
+        "python.linting.pylintPath": "/usr/local/bin/pylint"
+      }
+    }
+  },
+  "postCreateCommand": "echo '✅ Development environment ready!' && sudo chown -R devuser:devuser /home/devuser/.aws /home/devuser/.ssh && echo 'Tool versions:' && python --version && node --version && terraform --version && aws --version && gh --version",
+  "mounts": [
+    "source=${localEnv:USERPROFILE}/.aws,target=/home/devuser/.aws,type=bind,consistency=cached",
+    "source=${localEnv:USERPROFILE}/.ssh,target=/home/devuser/.ssh,type=bind,consistency=cached"
+  ]
+}
