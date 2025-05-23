@@ -33,7 +33,7 @@
   "postCreateCommand": "echo '✅ Development environment ready!' && sudo chown -R devuser:devuser /home/devuser/.aws /home/devuser/.ssh && echo 'Tool versions:' && python --version && node --version && terraform --version && aws --version && gh --version",
   "remoteUser": "devuser",
   "mounts": [
-    "source=${localEnv:USERPROFILE}/.aws,target=/home/devuser/.aws,type=bind,consistency=cached",
-    "source=${localEnv:USERPROFILE}/.ssh,target=/home/devuser/.ssh,type=bind,consistency=cached"
+    "source=${localEnv:USERPROFILE}\\.aws,target=/home/devuser/.aws,type=bind,consistency=cached",
+    "source=${localEnv:USERPROFILE}\\.ssh,target=/home/devuser/.ssh,type=bind,consistency=cached"
   ]
 }
