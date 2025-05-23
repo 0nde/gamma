@@ -31,6 +31,7 @@
   },
   "postCreateCommand": "sudo chown -R devuser:devuser /home/devuser/.aws /home/devuser/.ssh && echo '✅ Development environment ready!' && python --version && node --version && terraform --version && aws --version && gh --version",
   "remoteUser": "devuser",
+  // Bind mount the user's .aws and .ssh directories to the container IF Local Environment
   "mounts": [
     "source=${localEnv:USERPROFILE}/.aws,target=/home/devuser/.aws,type=bind,consistency=cached",
     "source=${localEnv:USERPROFILE}/.ssh,target=/home/devuser/.ssh,type=bind,consistency=cached"
