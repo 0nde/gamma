@@ -1,14 +1,7 @@
 {
   "name": "Fabien Dev Environment (Node.js, Python, Terraform, AWS, GitHub CLI)",
   "image": "haonde/aws-archi:0.3",
-/*   "context": ".",
-  "build": {
-    "args": {
-      "USERNAME": "devuser",
-      "USER_UID": "1000",
-      "USER_GID": "1000"
-    }
-  }, */
+  "remoteUser": "devuser",
   "customizations": {
     "vscode": {
       "extensions": [
@@ -22,16 +15,9 @@
       ],
       "settings": {
         "python.defaultInterpreterPath": "/usr/local/bin/python",
-        "terminal.integrated.defaultProfile.linux": "zsh",
-        "extensions.gallery.serviceUrl": "https://open-vsx.org/vscode/gallery",
-        "extensions.gallery.itemUrl": "https://open-vsx.org/vscode/item",
-        "python.linting.pylintPath": "/usr/local/bin/pylint"
+        "python.linting.pylintPath": "/usr/local/bin/pylint",
+        "terminal.integrated.defaultProfile.linux": "zsh"
       }
     }
-  },
-  "remoteUser": "devuser"/* ,
-  "mounts": [
-    "source=${localEnv:USERPROFILE}/.aws,target=/home/devuser/.aws,type=bind,consistency=cached",
-    "source=${localEnv:USERPROFILE}/.ssh,target=/home/devuser/.ssh,type=bind,consistency=cached"
-  ] */
+  }
 }
