@@ -2,9 +2,7 @@
   "name": "Fabien Dev Environment (Node.js, Python, Terraform, AWS, GitHub CLI)",
   "image": "haonde/aws-archi:0.3",
   "remoteUser": "devuser",
-
   "customizations": {
-    /* =============== VS Code (toutes éditions) =============== */
     "vscode": {
       "extensions": [
         "ms-python.python",
@@ -19,38 +17,7 @@
         "python.defaultInterpreterPath": "/usr/local/bin/python",
         "python.linting.pylintPath": "/usr/local/bin/pylint",
         "terminal.integrated.defaultProfile.linux": "zsh"
-        /* ↳ si tu utilises VS Code officiel, tu peux
-           décommenter les deux lignes suivantes :
-        "extensions.gallery.serviceUrl": "https://marketplace.visualstudio.com/_apis/public/gallery",
-        "extensions.gallery.itemUrl": "https://marketplace.visualstudio.com/items"
-        */
-      }
-    },
-
-    /* =============== VSCodium / Windsurf =============== */
-    "vscodium": {
-      "registries": {
-        "openvsx": {
-          "url": "https://open-vsx.org/vscode/gallery",
-          "headers": { "Accept": "application/json" }
-        }
-      },
-      "extensions": {
-        "ms-python.python": {},
-        "hashicorp.terraform": {},
-        "github.vscode-pull-request-github": {},
-        "amazonwebservices.aws-toolkit-vscode": {},
-        "ms-ceintl.vscode-language-pack-fr": {},
-        "esbenp.prettier-vscode": {},
-        "redhat.vscode-yaml": {}
       }
     }
-  },
-
-  /* =======================================================================
-     Post-create : installe tous les .vsix placés dans .devcontainer/vsix
-     – Ne plante pas si le dossier ou les fichiers n’existent pas
-     – S’exécute avec les droits de devuser (géré par l’extension Dev Containers)
-     ======================================================================= */
-  "postCreateCommand": "bash -c '\n  VSIX_DIR=\"/workspaces/${containerWorkspaceFolderBasename}/.devcontainer/vsix\"\n  if [ -d \"$VSIX_DIR\" ] && compgen -G \"$VSIX_DIR\"/*.vsix > /dev/null; then\n    echo \"Installing local VSIX extensions from $VSIX_DIR …\";\n    for f in \"$VSIX_DIR\"/*.vsix; do\n      echo \"  → $f\";\n      code --install-extension \"$f\" --force || true;\n    done\n  else\n    echo \"No VSIX to install – skipping manual extension install.\";\n  fi\n'"
+  }
 }
