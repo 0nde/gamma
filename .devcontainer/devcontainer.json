@@ -1,14 +1,14 @@
 {
   "name": "Fabien Dev Environment (Node.js, Python, Terraform, AWS, GitHub CLI)",
-  "image": "haonde/aws-archi:0.2",
-  "context": ".",
+  "image": "haonde/aws-archi:0.3",
+/*   "context": ".",
   "build": {
     "args": {
       "USERNAME": "devuser",
       "USER_UID": "1000",
       "USER_GID": "1000"
     }
-  },
+  }, */
   "customizations": {
     "vscode": {
       "extensions": [
@@ -30,9 +30,9 @@
     }
   },
   "postCreateCommand": "sudo chown -R devuser:devuser /home/devuser/.aws /home/devuser/.ssh && echo '✅ Development environment ready!' && python --version && node --version && terraform --version && aws --version && gh --version",
-  "remoteUser": "devuser",
+  "remoteUser": "devuser"/* ,
   "mounts": [
     "source=${localEnv:USERPROFILE}/.aws,target=/home/devuser/.aws,type=bind,consistency=cached",
     "source=${localEnv:USERPROFILE}/.ssh,target=/home/devuser/.ssh,type=bind,consistency=cached"
-  ]
+  ] */
 }
