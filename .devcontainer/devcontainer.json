@@ -1,6 +1,6 @@
 {
   "name": "Universal Dev Environment (Node.js, Python, Terraform, AWS, GitHub CLI)",
-  "image": "haonde/archi-aws:0.3",
+  "image": "haonde/archi-aws:0.2",
 /*   "context": ".",
   "build": {
     "args": {
