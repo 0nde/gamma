@@ -3,25 +3,6 @@
   "image": "haonde/aws-archi:0.3",
   "remoteUser": "devuser",
   "customizations": {
-    "vscodium": {
-      "registries": {
-        "openvsx": {
-          "url": "https://open-vsx.org/vscode/gallery",
-          "headers": {
-            "Accept": "application/json"
-          }
-        }
-      },
-      "extensions": {
-        "ms-python.python": {},
-        "hashicorp.terraform": {},
-        "github.vscode-pull-request-github": {},
-        "amazonwebservices.aws-toolkit-vscode": {},
-        "ms-ceintl.vscode-language-pack-fr": {},
-        "esbenp.prettier-vscode": {},
-        "redhat.vscode-yaml": {}
-      }
-    },
     "vscode": {
       "extensions": [
         "ms-python.python",
@@ -35,7 +16,9 @@
       "settings": {
         "python.defaultInterpreterPath": "/usr/local/bin/python",
         "python.linting.pylintPath": "/usr/local/bin/pylint",
-        "terminal.integrated.defaultProfile.linux": "zsh"
+        "terminal.integrated.defaultProfile.linux": "zsh",
+        "extensions.gallery.serviceUrl": "https://marketplace.visualstudio.com/_apis/public/gallery",
+        "extensions.gallery.itemUrl": "https://marketplace.visualstudio.com/items"
       }
     }
   }
