@@ -1,6 +1,6 @@
 {
   "name": "Universal Dev Environment (Node.js, Python, Terraform, AWS, GitHub CLI)",
-  "image": "haonde/archi-aws:0.1",
+  "dockerFile": "Dockerfile",
   "customizations": {
     "vscode": {
       "extensions": [
@@ -24,7 +24,7 @@
   },
   "postCreateCommand": "echo '✅ Development environment ready!'",
   "remoteUser": "devuser"
-  //seulement si on est en local
+  // seulement en local
 /*   "mounts": [
     "source=${localEnv:USERPROFILE}/.aws,target=/home/devuser/.aws,type=bind,consistency=cached",
     "source=${localEnv:USERPROFILE}/.ssh,target=/home/devuser/.ssh,type=bind,consistency=cached"
